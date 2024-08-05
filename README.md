@@ -1,14 +1,17 @@
 # Conformal Risk Control for Pulmonary Nodule Detection
 Author: Roel Hulsman
 
+European Commission, Joint Research Centre (JRC), Ispra, Italy.
+Part of a project on uncertainty quantification for deep learning models applied to health datasets. 
 
-## DESCRIPTION
+
+## Description
 Uncertainty quantification is a key pre-requisite for the uptake of AI-based decision support in the healthcare sector, and an important tool for policymakers to evaluate the reliability and transparency of AI systems. Focusing on predictive uncertainty quantification in supervised learning for medical imaging analysis, we investigate how to understand and communicate predictive uncertainty estimates. We provide a case study of pulmonary nodule detection from CT scans in the context of lung cancer screening, enhancing a state-of-the-art pulmonary nodule detection model with strict sensitivity control through techniques from the conformal prediction paradigm [1]. Insights are meant to aid healthcare regulators in the ongoing process of designing AI governance structures.
 
 [1] Angelopoulos, A. N., Bates, S., Fisch, A., Lei, L. & Schuster, T. Conformal Risk Control in International Conference on Learning Representations (ICLR) (2024).
 
 
-## HOW TO RUN
+## How To Run
 Anyone with a Linux machine and an internet connection should be able to run this repository to fully reproduce the results of this project. We recommend using Conda as a package manager. 
 
 Steps:
@@ -46,19 +49,19 @@ python scripts/do_conformal.py
 ```
 
 
-## HOW TO USE
+## How To Use
 To visualize CT scans and predicted nodules, we recommend using 3D slicer (download at https://download.slicer.org/). 
 
 
-## CITING OUR WORK
+## Citing Our Work
 TBA.
 
 
-## CREDITS
+## Credits
 The authors acknowledge the National Cancer Institute and the Foundation for the National Institutes of Health, and their critical role in the creation of the free publicly available LIDC-IDRI database used in this study. The authors further acknowledge Project-MONAI for providing a set of open-source frameworks for AI research in medical imaging.
 
 
-## LICENSE
+## License
 Apache 2.0 License.
 
 

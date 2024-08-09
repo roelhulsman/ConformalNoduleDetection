@@ -157,18 +157,20 @@ def plot_froc_adapted(results_froc, strategies, lambdas, seed, save_to_path):
 				k=1
 				l=1
 				ax[k, l].set_yticks([])
-			plot = sns.scatterplot(data[ds_name], x='false positives', y='sensitivity', ax=ax[k, l])
-			plot.set(xlabel='False Positives per Scan', ylabel='Sensitivity per Scan', title='FROC (Adapted) - Set %s' %(i))
+			plot = sns.scatterplot(data[ds_name], x='false positives', y='sensitivity', ax=ax[k, l], color='k')
+			plot.set(xlabel='False Positives per Scan', ylabel='Sensitivity per Scan', title='Set %s' %(i))
 			ax[k, l].set_xlim([0, 15])
 			ax[k, l].set_ylim([0.65, 1])
 			for strategy in strategies.keys():
 				lhat = results_froc['Set ' + str(i)][strategy]['lhat'][0]
-				print('Set {} - Strat {} - {} - lhat: '.format(i, strategy, ds_name), lhat)
-				plot.axvline(x = data[ds_name].iloc[np.where(lambdas==lhat)[0][0],:]['false positives'], color=strategies[strategy]['color'], label=strategy.title())
-				plot.axhline(y = data[ds_name].iloc[np.where(lambdas==lhat)[0][0],:]['sensitivity'], color=strategies[strategy]['color'])
-			plt.legend()
-	
+				ax[k, l].scatter(x = data[ds_name].iloc[np.where(lambdas==lhat)[0][0],:]['false positives'], y = data[ds_name].iloc[np.where(lambdas==lhat)[0][0],:]['sensitivity'], color=strategies[strategy]['color'], marker='o', s=100)
+				plot.axvline(x = data[ds_name].iloc[np.where(lambdas==lhat)[0][0],:]['false positives'], color=strategies[strategy]['color'], linestyle='dashed', lw=3, label=strategy.title())
+				plot.axhline(y = data[ds_name].iloc[np.where(lambdas==lhat)[0][0],:]['sensitivity'], color=strategies[strategy]['color'], linestyle='dashed', lw=3)
+			plt.legend(fontsize='medium')
+			
+		
 		fig.tight_layout()
+		
 		if 'Risk-Controlling Prediction Sets' in strategies.keys():
 			fig.savefig(save_to_path + 'plot_froc_adapted_{}_seed_{}_rcps.png'.format(ds_name, seed))
 		elif 'FROC Analysis' in strategies.keys():
@@ -196,26 +198,27 @@ def plot_consensus_analysis(results_consensus, strategies, save_to_path, R):
 			else:
 				plot.set(title=None)
 			if j==0:
-				plot.set(ylabel='Set %s' %(i+1))
+				plot.set(ylabel='Set %s\nProbability' %(i+1))
 			else: 
 				plot.set(ylabel=None)
 				ax[i][j].set_yticks([])
 			if i==ax.shape[0]-1:
 				plot.set(xlabel=list(metrics.keys())[j].title() + ' per Scan')
+				if j==ax.shape[1]-1:
+					ax[i][j].legend(loc='upper right', fancybox=True, fontsize='small')
 			else:
 				plot.set(xlabel=None)
 				ax[i][j].set_xticks([])
-			if j==ax.shape[1]-1:
-				ax[i][j].legend(loc='upper right', fancybox=True, fontsize=12)
 			if list(metrics.keys())[j] == 'sensitivity':
-				plot.axvline(x = 1 - strategies['Conformal Risk Control']['alpha'], color='red', lw=2, label='Target Sensitivity')
+				plot.axvline(x = 1 - strategies['Conformal Risk Control']['alpha'], color='red', lw=3, linestyle='dashed', label='Target Sensitivity')
 			ax[i][j].set_xlim(metrics[list(metrics.keys())[j]][0])
 			ax[i][j].set_ylim(metrics[list(metrics.keys())[j]][1])
-			
+			 
 
 	#plt.legend(loc='upper right', fancybox=True, fontsize=8)
-
+	 
 	plt.tight_layout()
+	
 	
 	if 'Risk-Controlling Prediction Sets' in strategies.keys():
 		fig.savefig(save_to_path + 'plot_consensus_analysis_rcps.png')

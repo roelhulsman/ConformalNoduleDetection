@@ -1,7 +1,8 @@
 # Conformal Risk Control for Pulmonary Nodule Detection
-Author: Roel Hulsman
+Author: Roel Hulsman. 
 
 European Commission, Joint Research Centre (JRC), Ispra, Italy.
+
 Part of a project on uncertainty quantification for deep learning models applied to health datasets. 
 
 
@@ -32,8 +33,8 @@ gunzip -r data/images
 6. Download the detection and segmentation models from MONAI by running the following command lines. This creates a folder `apps/`. We owe credit again for the do_infer.py script, adapted from MONAILabel (Apache 2.0 license).
 ```
 monailabel apps --name monaibundle --download --output apps
-python scripts/do_infer.py -t download --det_nd
-python scripts/do_infer.py -t download --seg_ct
+python scripts/do_infer.py -t download --det_nd --app_dir apps/monaibundle/
+python scripts/do_infer.py -t download --seg_ct --app_dir apps/monaibundle/
 ```
 7. In the file `apps/monaibundle/model/lung_nodule_ct_detection/configs/inference.json`, change the following lines. This is to make sure to resample input images when running the detection model and to extract filtered anchor boxes. Change line 2 from ``"whether_raw_luna16": false,`` to ``"whether_raw_luna16": true,``. Change line 77 from ``"$@detector.set_box_selector_parameters(score_thresh=0.02,topk_candidates_per_level=1000,nms_thresh=0.22,detections_per_img=300)",`` to ``"$@detector.set_box_selector_parameters(score_thresh=0,topk_candidates_per_level=100000,nms_thresh=0.22,detections_per_img=100000)",``. 
 8. Run the prediction pipeline by running the following command lines. Note this is a Bash script, tested on a Linux machine, and might cause problems on different systems. Running the detection model takes roughly 17 minutes per image on one A100 GPU. Running the segmentation model takes roughly 2 mintes per image on one A100 GPU. 
@@ -58,7 +59,7 @@ TBA.
 
 
 ## Credits
-The authors acknowledge the National Cancer Institute and the Foundation for the National Institutes of Health, and their critical role in the creation of the free publicly available LIDC-IDRI database used in this study. The authors further acknowledge Project-MONAI for providing a set of open-source frameworks for AI research in medical imaging.
+The authors acknowledge the National Cancer Institute and the Foundation for the National Institutes of Health for their critical role in the creation of the free publicly available LIDC-IDRI dataset used in this study. The authors further acknowledge Project-MONAI for their efforts in providing a set of open-source frameworks for AI research in medical imaging.
 
 
 ## License

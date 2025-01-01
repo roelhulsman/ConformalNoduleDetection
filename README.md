@@ -1,5 +1,5 @@
 # Conformal Risk Control for Pulmonary Nodule Detection
-Author: Roel Hulsman, Valentin Comte, Lorenzo Bertolini, Tobias Wiesenthal, Antonio Puertas Gallardo and Mario Ceresa. 
+Roel Hulsman, Valentin Comte, Lorenzo Bertolini, Tobias Wiesenthal, Antonio Puertas Gallardo and Mario Ceresa. 
 
 European Commission, Joint Research Centre (JRC), Ispra, Italy.
 

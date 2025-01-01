@@ -1,17 +1,15 @@
 # Conformal Risk Control for Pulmonary Nodule Detection
-Author: Roel Hulsman, Valentin Comte, Lorenzo Bertolini, and Mario Ceresa. 
+Author: Roel Hulsman, Valentin Comte, Lorenzo Bertolini, Tobias Wiesenthal, Antonio Puertas Gallardo and Mario Ceresa. 
 
 European Commission, Joint Research Centre (JRC), Ispra, Italy.
 
-Part of a project on uncertainty quantification for deep learning models applied to health datasets. 
-
 
 ## Description
-Predictive uncertainty quantification is a key pre-requisite for the uptake of AI-based decision support in the healthcare sector, and an important procedure for policymakers to evaluate the reliability and transparency of AI systems. We provide a case study of pulmonary nodule detection in the context of lung cancer screening, enhancing a state-of-the-art pulmonary nodule detection model with strict sensitivity control through techniques from the conformal prediction paradigm, in particular Conformal Risk Control (CRC). Among nodules annotated by at least three radiologists, we achieve 91.35\% sensitivity at 2.25 false positives per scan. We demonstrate that prediction sets with conformal guarantees are attractive measures of predictive uncertainty in the safety-critical healthcare domain, allowing to achieve arbitrary validity by tolerating more false positives. We further illustrate the societal risk in utilizing off-the-shelve prediction models in the face of ontological uncertainty, in particular when radiologists disagree on what constitutes the `ground-truth' concerning pulmonary nodules. Insights are meant to aid healthcare regulators in the ongoing process of designing AI governance structures.
+Quantitative tools are increasingly appealing for decision support in healthcare, driven by the growing capabilities of advanced AI systems. However, understanding the predictive uncertainties surrounding a tool's output is crucial for decision-makers to ensure reliable and transparent decisions. In this paper, we present a case study on pulmonary nodule detection for lung cancer screening, enhancing an advanced detection model with an uncertainty quantification technique called conformal risk control (CRC). We demonstrate that prediction sets with conformal guarantees are attractive measures of predictive uncertainty in the safety-critical healthcare domain, allowing end-users to achieve arbitrary validity by trading off false positives and providing formal statistical guarantees on model performance. Among ground-truth nodules annotated by at least three radiologists, our model achieves a sensitivity that is competitive with that generally achieved by individual radiologists, with a slight increase in false positives. Furthermore, we illustrate the risks of using off-the-shelve prediction models when faced with ontological uncertainty, such as when radiologists disagree on what constitutes the ground truth on pulmonary nodules. 
 
 
 ## How To Run
-Anyone with a Linux machine and an internet connection should be able to run this repository to fully reproduce the results of this project. We recommend using Conda as a package manager. 
+Follow the steps below to fully reproduce the results of this project. We recommend using Conda as a package manager. 
 
 Steps:
 1. Clone this repository and set it as working directory. 
@@ -53,11 +51,18 @@ To visualize CT scans and predicted nodules, we recommend using 3D slicer (downl
 
 
 ## Citing Our Work
-TBA.
+```
+@article{hulsman2024conformal,
+      title={Conformal Risk Control for Pulmonary Nodule Detection}, 
+      author={Roel Hulsman and Valentin Comte and Lorenzo Bertolini and Tobias Wiesenthal and Antonio Puertas Gallardo and Mario Ceresa},
+      year={2024},
+      journal={arXiv preprint arXiv:2412.20167},
+}
+```
 
 
 ## Credits
-The authors acknowledge the National Cancer Institute and the Foundation for the National Institutes of Health for their critical role in the creation of the free publicly available LIDC-IDRI dataset used in this study. The authors further acknowledge Project-MONAI for their efforts in providing a set of open-source frameworks for AI research in medical imaging.
+We acknowledge the National Cancer Institute and the Foundation for the National Institutes of Health for their critical role in the creation of the free publicly available LIDC-IDRI dataset used in this study. We further acknowledge Project-MONAI for their efforts in providing a set of open-source frameworks for AI research in medical imaging, such as MONAILabel.
 
 
 ## License

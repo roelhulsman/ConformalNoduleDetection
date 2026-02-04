@@ -3,11 +3,13 @@ Roel Hulsman, Valentin Comte, Lorenzo Bertolini, Tobias Wiesenthal, Antonio Puer
 
 European Commission, Joint Research Centre (JRC), Ispra, Italy.
 
-https://arxiv.org/abs/2412.20167
+Accepted at COPA'25
+
+https://raw.githubusercontent.com/mlresearch/v266/main/assets/hulsman25a/hulsman25a.pdf
 
 
 ## Description
-Quantitative tools are increasingly appealing for decision support in healthcare, driven by the growing capabilities of advanced AI systems. However, understanding the predictive uncertainties surrounding a tool's output is crucial for decision-makers to ensure reliable and transparent decisions. In this paper, we present a case study on pulmonary nodule detection for lung cancer screening, enhancing an advanced detection model with an uncertainty quantification technique called conformal risk control (CRC). We demonstrate that prediction sets with conformal guarantees are attractive measures of predictive uncertainty in the safety-critical healthcare domain, allowing end-users to achieve arbitrary validity by trading off false positives and providing formal statistical guarantees on model performance. Among ground-truth nodules annotated by at least three radiologists, our model achieves a sensitivity that is competitive with that generally achieved by individual radiologists, with a slight increase in false positives. Furthermore, we illustrate the risks of using off-the-shelve prediction models when faced with ontological uncertainty, such as when radiologists disagree on what constitutes the ground truth on pulmonary nodules. 
+Quantitative tools are increasingly appealing for decision support in healthcare, driven by the growing capabilities of advanced AI systems. However, understanding the predictive uncertainties surrounding a tool’s output is crucial for decision-makers to ensure reliable and transparent decisions. In this paper, we present a case study on pulmonary nodule detection for lung cancer screening, enhancing an advanced detection model with an uncertainty quantification technique called conformal risk control (CRC). We demonstrate that prediction sets with conformal guarantees are attractive measures of predictive uncertainty in the safety-critical healthcare domain, allowing end-users to achieve arbitrary validity by trading off false positives and providing formal statistical guarantees on model performance. Among ground-truth nodules annotated by at least three radiologists, our model achieves a sensitivity that is competitive with that generally achieved by individual radiologists, with a slight increase in false positives. Furthermore, we illustrate the risks of using off-the-shelve prediction models when faced with ontological uncertainty, such as when radiologists disagree on what constitutes the ground truth on pulmonary nodules.
 
 
 ## How To Run
@@ -54,11 +56,15 @@ To visualize CT scans and predicted nodules, we recommend using 3D slicer (downl
 
 ## Citing Our Work
 ```
-@article{hulsman2024conformal,
-      title={Conformal Risk Control for Pulmonary Nodule Detection}, 
-      author={Roel Hulsman and Valentin Comte and Lorenzo Bertolini and Tobias Wiesenthal and Antonio Puertas Gallardo and Mario Ceresa},
-      year={2024},
-      journal={arXiv preprint arXiv:2412.20167},
+@inproceedings{hulsman2025conformal,
+  title         = {Conformal Risk Control for Pulmonary Nodule Detection},
+  author        = {Hulsman, Roel and Comte, Valentin and Bertolini, Lorenzo and Wiesenthal, Tobias and Puertas Gallardo, Antonio and Ceresa, Mario},
+  booktitle     = {Proceedings of the 14th Symposium on Conformal and Probabilistic Prediction
+with Applications},
+  volume        = {266},
+  pages         = {445--463},
+  year          = {2025},
+  organization  = {PMLR}
 }
 ```
 
